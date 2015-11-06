@@ -74,7 +74,8 @@ module.exports = exports = function (_ua, obj) {
       _android + _mobile + ')|(' + _ff + _mobile +
       ')|' + _windows + ' phone|iemobile', _phone
     ],
-    [ _xbox + '|' + _ps, 'console' ], [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
+    [ _xbox + '|' + _ps, 'console' ],
+    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
     [ _castDetect, _chromecast ], [ 'amazon-fireos', _tablet ]
   )
   // TODO: amazon firetv and phone
