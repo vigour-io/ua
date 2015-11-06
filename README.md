@@ -1,7 +1,7 @@
 # ua
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-ua parser with a light footprin (>1kb)
+ua parser with a light footprint (>1kb)
 
 ```javascript
 var ua = require('vigour-ua')
