@@ -1,6 +1,6 @@
 describe('devices', function () {
   var ua = require('../../')
-  var useragents = require('./useragents')
+  var useragents = require('./useragents/list')
   it('samsung smart-tv', function () {
     check({
       list: useragents.samsungSmartTv,
@@ -28,9 +28,9 @@ describe('devices', function () {
   function check (params) {
     var result
     for (var i in params.list) {
-      result = ua.parse(params.list[i])
-      result.device.should.msg('device is incorrect\n\n' + params.list[i] + '\n\n').equal(params.device)
-      result.platform.should.msg('platform is incorrect\n\n' + params.list[i] + '\n\n').equal(params.platform)
+      result = ua(params.list[i])
+      expect(result.device).to.equal(params.device)
+      expect(result.platform).to.equal(params.platform)
     }
   }
 })
