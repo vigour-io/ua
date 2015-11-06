@@ -3,7 +3,7 @@
 
 ua parser with a light footprint (>1kb)
 
-###parse user agent strings*
+###parse user agent strings
 ```javascript
 var ua = require('vigour-ua')
 var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.3'
