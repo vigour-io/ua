@@ -2,7 +2,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/vigour-ua.svg)](https://badge.fury.io/js/vigour-ua)
 
-ua parser with a light footprint (>1kb)
+ua parser with a light footprint (~1kb)
 
 ###parse user agent strings
 ```javascript
