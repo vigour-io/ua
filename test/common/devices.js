@@ -25,6 +25,14 @@ describe('devices', function () {
     })
   })
 
+  it('iPhone', function () {
+    check({
+      list: useragents.iPhone,
+      platform: 'ios',
+      device: 'phone'
+    })
+  })
+
   function check (params) {
     var result
     for (var i in params.list) {
