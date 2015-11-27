@@ -1,7 +1,7 @@
 # ua
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/vigour-ua.svg)](https://badge.fury.io/js/vigour-ua)
-![travis](https://travis-ci.org/vigour-io/ua.svg?branch=master)
+[![Build Status](https://travis-ci.org/vigour-io/ua.svg)](https://travis-ci.org/vigour-io/ua)
 
 ua parser with a light footprint (~1kb)
 
