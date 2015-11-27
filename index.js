@@ -1,6 +1,3 @@
-'use strict'
-// var isNode = typeof window !== 'undefined'
-
 module.exports = exports = function (_ua, obj) {
   _ua = _ua.toLowerCase()
   if (obj === true) {
@@ -79,33 +76,19 @@ module.exports = exports = function (_ua, obj) {
     [ 'amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ]
   )
 
-  // iphone6plus used as boundary for "phone sized"
-  // var iphone6plus = 414 * 736
-  // if (
-  //   obj.platform === _android &&
-  //   !isNode && obj.device === _phone &&
-  //   window.innerWidth * window.innerHeight > iphone6plus
-  //   // && ~_ua.indexOf('crosswalk')
-  // ) {
-  //   obj.device = 'tablet'
-  // }
   return obj
-}
 
-/**
- * test
- * search for regexps in the userAgent
- * fn is a on succes callback
- * check http://www.useragentstring.com/ to test for userAgents
- * @method
- */
-function test (_ua, fn) {
-  for (var tests = arg(arguments, 1), i = tests.length - 1, query = tests[i][0]; query !== true && !new RegExp(query).test(_ua); query = tests[--i][0]); //eslint-disable-line
-  if (fn.slice || fn.call(this, query, tests[i])) {
-    this[fn] = tests[i][1]
+  /**
+   * test
+   * search for regexps in the userAgent
+   * fn is a on succes callback
+   * check tests in https://github.com/faisalman/ua-parser-js to test for userAgents
+   * @method
+   */
+  function test (_ua, fn) {
+    for (var tests = arguments, i = tests.length - 1, query = tests[i][0]; query !== true && !new RegExp(query).test(_ua) && i > 0; query = tests[--i][0]); //eslint-disable-line
+    if (fn.slice || fn.call(this, query, tests[i])) {
+      this[fn] = tests[i][1]
+    }
   }
-}
-
-function arg (args, slice) {
-  return Array.prototype.slice.call(args, slice)
 }
