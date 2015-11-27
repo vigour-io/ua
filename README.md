@@ -5,7 +5,7 @@
 
 ua parser with a light footprint (~1kb)
 
-###parse user agent strings
+### parse user agent strings
 ```javascript
 var ua = require('vigour-ua')
 var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.3'
@@ -23,7 +23,7 @@ outputs
 }
 ```
 
-###merge into objects
+### merge into objects
 ```javascript
 var ua = require('vigour-ua')
 var someObject = {
@@ -44,7 +44,7 @@ outputs `someObject`
 }
 ```
 
-###merge into itself
+### merge into itself
 ```javascript
 var ua = require('vigour-ua')
 console.log(ua(userAgent, true))
