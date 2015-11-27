@@ -1,3 +1,4 @@
+'use strict'
 describe('devices', function () {
   var ua = require('../../')
   var useragents = require('./useragents/list')
@@ -30,6 +31,31 @@ describe('devices', function () {
       list: useragents.iPhone,
       platform: 'ios',
       device: 'phone'
+    })
+  })
+
+  it('iPad', function () {
+    check({
+      list: useragents.iPad,
+      platform: 'ios',
+      device: 'tablet'
+    })
+  })
+
+  it('android phone', function () {
+    check({
+      list: useragents.androidPhone,
+      // browser
+      platform: 'android',
+      device: 'phone'
+    })
+  })
+
+  it('android tablet', function () {
+    check({
+      list: useragents.androidTablet,
+      platform: 'android',
+      device: 'tablet'
     })
   })
 

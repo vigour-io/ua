@@ -1,12 +1,11 @@
 'use strict'
-var isNode = typeof window !== 'undefined'
+// var isNode = typeof window !== 'undefined'
 
 module.exports = exports = function (_ua, obj) {
   _ua = _ua.toLowerCase()
   if (obj === true) {
     obj = exports
-  }
-  if (!obj) {
+  } else if (!obj) {
     obj = {}
   }
   // _ua = 'webos; linux - large screen'
@@ -76,20 +75,20 @@ module.exports = exports = function (_ua, obj) {
     ],
     [ _xbox + '|' + _ps, 'console' ],
     [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
-    [ _castDetect, _chromecast ], [ 'amazon-fireos', _tablet ]
+    [ _castDetect, _chromecast ],
+    [ 'amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ]
   )
-  // TODO: amazon firetv and phone
 
   // iphone6plus used as boundary for "phone sized"
-  var iphone6plus = 414 * 736
-  if (
-    obj.platform === _android &&
-    !isNode && obj.device === _phone &&
-    window.innerWidth * window.innerHeight > iphone6plus
-    // && ~_ua.indexOf('crosswalk')
-  ) {
-    obj.device = 'tablet'
-  }
+  // var iphone6plus = 414 * 736
+  // if (
+  //   obj.platform === _android &&
+  //   !isNode && obj.device === _phone &&
+  //   window.innerWidth * window.innerHeight > iphone6plus
+  //   // && ~_ua.indexOf('crosswalk')
+  // ) {
+  //   obj.device = 'tablet'
+  // }
   return obj
 }
 
@@ -103,7 +102,7 @@ module.exports = exports = function (_ua, obj) {
 function test (_ua, fn) {
   for (var tests = arg(arguments, 1), i = tests.length - 1, query = tests[i][0]; query !== true && !new RegExp(query).test(_ua); query = tests[--i][0]); //eslint-disable-line
   if (fn.slice || fn.call(this, query, tests[i])) {
-    this[ fn ] = tests[ i ][ 1 ]
+    this[fn] = tests[i][1]
   }
 }
 
