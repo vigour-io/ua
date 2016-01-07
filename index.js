@@ -1,3 +1,4 @@
+
 module.exports = exports = function (_ua, obj) {
   _ua = _ua.toLowerCase()
   if (obj === true) {
@@ -18,6 +19,7 @@ module.exports = exports = function (_ua, obj) {
   var _tablet = 'tablet'
   var _windows = 'windows'
   var _phone = 'phone'
+  var _firetv = 'firetv'
 
   /**
    * browser detection
@@ -73,7 +75,8 @@ module.exports = exports = function (_ua, obj) {
     [ _xbox + '|' + _ps, 'console' ],
     [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
     [ _castDetect, _chromecast ],
-    [ 'amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ]
+    [ 'amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
+    ['aft', _firetv] //"AFTS" for the current Amazon Fire TV. "AFTB" for the Fire TV (1st Generation), For forward-compatibility with future devices better check just "AFT"
   )
 
   return obj
