@@ -59,6 +59,22 @@ describe('devices', function () {
     })
   })
 
+  it('stick tv', function () {
+    check({
+      list: useragents.sticktv,
+      platform: 'android',
+      device: 'sticktv'
+    })
+  })
+
+  it('fire tv', function () {
+    check({
+      list: useragents.firetv,
+      platform: 'android',
+      device: 'firetv'
+    })
+  })
+
   function check (params) {
     var result
     for (var i in params.list) {
