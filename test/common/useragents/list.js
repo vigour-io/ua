@@ -65,11 +65,11 @@ exports.androidTablet = [
 ]
 
 exports.firetv = [
-  //1st generation
+  // 1st generation
   'Mozilla/5.0 (Linux; Android 4.2.2; AFTB Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0',
-  //2nd generation
+  // 2nd generation
   'Mozilla/5.0 (Linux; Android 4.2.2; AFTS Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0'
 ]
 exports.sticktv = ['Mozilla/5.0 (Linux; Android 4.2.2; AFTM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0']
 
-
+exports.rikstv = ['Ekioh/2.2.8.2 (Linux; Oct 31 2013; r12704) RiksTV/Strongv1']

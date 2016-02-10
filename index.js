@@ -21,6 +21,7 @@ module.exports = exports = function (_ua, obj) {
   var _phone = 'phone'
   var _firetv = 'firetv'
   var _sticktv = 'sticktv'
+  var _rikstv = 'rikstv'
 
   /**
    * browser detection
@@ -59,7 +60,8 @@ module.exports = exports = function (_ua, obj) {
     [ _android, _android ],
     [ _windows, _windows ],
     [ _castDetect, _chromecast ],
-    [ 'smart-tv;|;samsung;smarttv', 'samsung' ] // SmartTV2013
+    [ 'smart-tv;|;samsung;smarttv', 'samsung' ], // SmartTV2013
+    [ _rikstv, _rikstv ]
   )
 
   /**
@@ -77,8 +79,9 @@ module.exports = exports = function (_ua, obj) {
     [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
     [ _castDetect, _chromecast ],
     [ 'amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
-    ['aftb|afts', _firetv ],
-    ['aftm', _sticktv]
+    [ 'aftb|afts', _firetv ],
+    [ 'aftm', _sticktv ],
+    [ 'RiksTV', _rikstv ]
   )
 
   return obj

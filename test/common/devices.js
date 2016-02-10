@@ -75,6 +75,14 @@ describe('devices', function () {
     })
   })
 
+  it('riks tv', function () {
+    check({
+      list: useragents.rikstv,
+      platform: 'rikstv',
+      device: 'tv'
+    })
+  })
+
   function check (params) {
     var result
     for (var i in params.list) {
