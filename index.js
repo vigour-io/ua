@@ -71,17 +71,22 @@ module.exports = exports = function (_ua, obj) {
     [ true, 'desktop' ],
     [ _windows + '.+touch|ipad|' + _android, _tablet ],
     [
-      'iphone|(' +
+      'phone|iphone|(' +
       _android + _mobile + ')|(' + _ff + _mobile +
       ')|' + _windows + ' phone|iemobile', _phone
     ],
     [ _xbox + '|' + _ps, 'console' ],
     [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
     [ _castDetect, _chromecast ],
-    [ 'amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
+    [ 'tablet|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
     [ 'aftb|afts', _firetv ],
     [ 'aftm', _sticktv ],
     [ 'RiksTV', _rikstv ]
+  )
+
+  test.call(obj, _ua, 'webview',
+    [ true, false ],
+    [ 'vigour-wrapper', true ]
   )
 
   return obj
@@ -95,6 +100,8 @@ module.exports = exports = function (_ua, obj) {
    */
   function test (_ua, fn) {
     for (var tests = arguments, i = tests.length - 1, query = tests[i][0]; query !== true && !new RegExp(query).test(_ua) && i > 0; query = tests[--i][0]); //eslint-disable-line
+    // this for has no body
+
     if (fn.slice || fn.call(this, query, tests[i])) {
       this[fn] = tests[i][1]
     }
