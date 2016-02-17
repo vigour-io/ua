@@ -7,7 +7,8 @@ describe('methods', function () {
       version: 46,
       prefix: 'webkit',
       platform: 'mac',
-      device: 'desktop'
+      device: 'desktop',
+      webview: false
     })
   })
 
@@ -22,7 +23,8 @@ describe('methods', function () {
       prefix: 'webkit',
       platform: 'mac',
       device: 'desktop',
-      field: true
+      field: true,
+      webview: false
     })
   })
 
