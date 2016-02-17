@@ -22,6 +22,7 @@ module.exports = exports = function (_ua, obj) {
   var _firetv = 'firetv'
   var _sticktv = 'sticktv'
   var _rikstv = 'rikstv'
+  var _facebook = 'facebook'
 
   /**
    * browser detection
@@ -43,6 +44,7 @@ module.exports = exports = function (_ua, obj) {
     [ _ff, 'Moz' ],
     [ 'opera', 'O' ],
     [ 'msie', 'ms', 'ie' ],
+    [ _facebook, _facebook ],
     [ 'chrome|crios\/', _webkit, 'chrome' ]
   )
 
