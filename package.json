@@ -29,5 +29,8 @@
       "expect",
       "xit"
     ]
-  }
+  },
+  "contributors": [],
+  "dependencies": {},
+  "engines": {}
 }
