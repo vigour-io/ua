@@ -1,6 +1,10 @@
 
 module.exports = exports = function (_ua, obj) {
-  _ua = _ua.toLowerCase()
+  try {
+    _ua = _ua.toLowerCase()
+  } catch (e) {
+    _ua = ''
+  }
   if (obj === true) {
     obj = exports
   } else if (!obj) {
