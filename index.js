@@ -1,8 +1,8 @@
 
 module.exports = exports = function (_ua, obj) {
-  try {
+  if (typeof _ua === 'string') {
     _ua = _ua.toLowerCase()
-  } catch (e) {
+  } else {
     _ua = ''
   }
   if (obj === true) {
