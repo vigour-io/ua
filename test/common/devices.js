@@ -79,7 +79,7 @@ describe('devices', function () {
     check({
       list: useragents.rikstv,
       platform: 'rikstv',
-      device: 'tv'
+      device: 'rikstv'
     })
   })
 
