@@ -87,12 +87,13 @@ module.exports = exports = function (_ua, obj) {
     [ 'tablet|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
     [ 'aftb|afts', _firetv ],
     [ 'aftm', _sticktv ],
-    [ 'RiksTV', _rikstv ]
+    [ _rikstv, _rikstv ]
   )
 
   test.call(obj, _ua, 'webview',
     [ true, false ],
-    [ 'vigour-wrapper', true ]
+    [ 'vigour-wrapper', true ],
+    [ 'crosswalk', true ]
   )
 
   return obj
@@ -107,7 +108,6 @@ module.exports = exports = function (_ua, obj) {
   function test (_ua, fn) {
     for (var tests = arguments, i = tests.length - 1, query = tests[i][0]; query !== true && !new RegExp(query).test(_ua) && i > 0; query = tests[--i][0]); //eslint-disable-line
     // this for has no body
-
     if (fn.slice || fn.call(this, query, tests[i])) {
       this[fn] = tests[i][1]
     }
