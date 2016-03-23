@@ -1,6 +1,6 @@
 {
   "name": "vigour-ua",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "lightweight ua parser",
   "main": "index.js",
   "scripts": {
