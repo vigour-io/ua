@@ -1,75 +1,89 @@
-describe('methods', function () {
-  var ua = require('../../')
-  var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.3'
-  var defaultUA = {
-    browser: true,
-    version: 0,
+'use strict'
+var test = require('tape')
+var ua = require('../../')
+var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.3'
+var defaultUA = {
+  browser: true,
+  version: 0,
+  prefix: 'webkit',
+  platform: 'windows',
+  device: 'desktop',
+  webview: false
+}
+
+test('it returns an object', function (t) {
+  t.plan(1)
+  t.deepEquals(ua(userAgent), {
+    browser: 'chrome',
+    version: 46,
     prefix: 'webkit',
-    platform: 'windows',
+    platform: 'mac',
     device: 'desktop',
     webview: false
+  })
+})
+
+test('it can merge into an object', function (t) {
+  t.plan(1)
+  var obj = {
+    field: true
   }
-  it('it returns an object', function () {
-    expect(ua(userAgent)).to.deep.equal({
-      browser: 'chrome',
-      version: 46,
-      prefix: 'webkit',
-      platform: 'mac',
-      device: 'desktop',
-      webview: false
-    })
+  ua(userAgent, obj)
+  t.deepEquals(obj, {
+    browser: 'chrome',
+    version: 46,
+    prefix: 'webkit',
+    platform: 'mac',
+    device: 'desktop',
+    field: true,
+    webview: false
   })
+})
 
-  it('it can merge into an object', function () {
-    var obj = {
-      field: true
-    }
-    ua(userAgent, obj)
-    expect(obj).to.deep.equal({
-      browser: 'chrome',
-      version: 46,
-      prefix: 'webkit',
-      platform: 'mac',
-      device: 'desktop',
-      field: true,
-      webview: false
-    })
-  })
+test('it can merge into itself', function (t) {
+  t.plan(5)
+  ua(userAgent, true)
+  t.equals(ua.browser, 'chrome')
+  t.equals(ua.version, 46)
+  t.equals(ua.prefix, 'webkit')
+  t.equals(ua.platform, 'mac')
+  t.equals(ua.device, 'desktop')
+})
 
-  it('it can merge into itself', function () {
-    ua(userAgent, true)
-    expect(ua.browser).to.equal('chrome')
-    expect(ua.version).to.equal(46)
-    expect(ua.prefix).to.equal('webkit')
-    expect(ua.platform).to.equal('mac')
-    expect(ua.device).to.equal('desktop')
-  })
+test('should work even it _ua === undefined', function (t) {
+  t.plan(1)
+  t.deepEquals(ua(), defaultUA)
+})
 
-  it('should work even it _ua === undefined', function () {
-    expect(ua()).to.deep.equal(defaultUA)
-  })
+test('should work even it _ua === {}', function (t) {
+  t.plan(1)
+  t.deepEquals(ua({}), defaultUA)
+})
 
-  it('should work even it _ua === {}', function () {
-    expect(ua({})).to.deep.equal(defaultUA)
-  })
+test('should work even it _ua is a number', function (t) {
+  t.plan(1)
+  t.deepEquals(ua(42), defaultUA)
+})
 
-  it('should work even it _ua is a number', function () {
-    expect(ua(42)).to.deep.equal(defaultUA)
-  })
+test('should work even it _ua is a function', function (t) {
+  t.plan(1)
+  var testFunction = function () {
+    return 1 + 1
+  }
+  t.deepEquals(ua(testFunction), defaultUA)
+})
 
-  it('should work even it _ua is a function', function () {
-    expect(ua(expect)).to.deep.equal(defaultUA)
-  })
+test('should work even it _ua is an array', function (t) {
+  t.plan(1)
+  t.deepEquals(ua([]), defaultUA)
+})
 
-  it('should work even it _ua is an array', function () {
-    expect(ua([])).to.deep.equal(defaultUA)
-  })
+test('should work even it _ua === true', function (t) {
+  t.plan(1)
+  t.deepEquals(ua(true), defaultUA)
+})
 
-  it('should work even it _ua === true', function () {
-    expect(ua(true)).to.deep.equal(defaultUA)
-  })
-
-  it('should work even it _ua === false', function () {
-    expect(ua(false)).to.deep.equal(defaultUA)
-  })
+test('should work even it _ua === false', function (t) {
+  t.plan(1)
+  t.deepEquals(ua(false), defaultUA)
 })
