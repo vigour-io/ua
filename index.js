@@ -1,4 +1,10 @@
-
+/**
+ * @function ua
+ * Returns an object representing the user agent including data such as browser, device and platform
+ * @param {string} _ua - the raw user agent string to be converted
+ * @param {string} obj - (optional) object to be merged to the output result
+ * @returns {object} object representing your user agent
+ */
 module.exports = exports = function (_ua, obj) {
   if (typeof _ua === 'string') {
     _ua = _ua.toLowerCase()
