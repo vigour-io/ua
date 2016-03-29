@@ -1,94 +1,103 @@
 'use strict'
-describe('devices', function () {
-  var ua = require('../../')
-  var useragents = require('./useragents/list')
-  it('samsung smart-tv', function () {
-    check({
-      list: useragents.samsungSmartTv,
-      platform: 'samsung',
-      device: 'tv'
-    })
-  })
+var test = require('tape')
+var ua = require('../../')
+var useragents = require('./useragents/list')
 
-  it('lg smart-tv', function () {
-    check({
-      list: useragents.lgSmartTv,
-      platform: 'lg',
-      device: 'tv'
-    })
-  })
-
-  it('chromeCast', function () {
-    check({
-      list: useragents.chromeCast,
-      platform: 'chromecast',
-      device: 'chromecast'
-    })
-  })
-
-  it('iPhone', function () {
-    check({
-      list: useragents.iPhone,
-      platform: 'ios',
-      device: 'phone'
-    })
-  })
-
-  it('iPad', function () {
-    check({
-      list: useragents.iPad,
-      platform: 'ios',
-      device: 'tablet'
-    })
-  })
-
-  it('android phone', function () {
-    check({
-      list: useragents.androidPhone,
-      // browser
-      platform: 'android',
-      device: 'phone'
-    })
-  })
-
-  it('android tablet', function () {
-    check({
-      list: useragents.androidTablet,
-      platform: 'android',
-      device: 'tablet'
-    })
-  })
-
-  it('stick tv', function () {
-    check({
-      list: useragents.sticktv,
-      platform: 'android',
-      device: 'sticktv'
-    })
-  })
-
-  it('fire tv', function () {
-    check({
-      list: useragents.firetv,
-      platform: 'android',
-      device: 'firetv'
-    })
-  })
-
-  it('riks tv', function () {
-    check({
-      list: useragents.rikstv,
-      platform: 'rikstv',
-      device: 'rikstv'
-    })
-  })
-
-  function check (params) {
-    var result
-    for (var i in params.list) {
-      result = ua(params.list[i])
-      expect(result.device).to.equal(params.device)
-      expect(result.platform).to.equal(params.platform)
-    }
-  }
+test('devices - samsung smart-tv', function (t) {
+  t.plan(useragents.samsungSmartTv.length * 2)
+  check({
+    list: useragents.samsungSmartTv,
+    platform: 'samsung',
+    device: 'tv'
+  }, t)
 })
+
+test('devices - lg smart-tv', function (t) {
+  t.plan(useragents.lgSmartTv.length * 2)
+  check({
+    list: useragents.lgSmartTv,
+    platform: 'lg',
+    device: 'tv'
+  }, t)
+})
+
+test('devices - chromeCast', function (t) {
+  t.plan(useragents.chromeCast.length * 2)
+  check({
+    list: useragents.chromeCast,
+    platform: 'chromecast',
+    device: 'chromecast'
+  }, t)
+})
+
+test('devices - iPhone', function (t) {
+  t.plan(useragents.iPhone.length * 2)
+  check({
+    list: useragents.iPhone,
+    platform: 'ios',
+    device: 'phone'
+  }, t)
+})
+
+test('devices - iPad', function (t) {
+  t.plan(useragents.iPad.length * 2)
+  check({
+    list: useragents.iPad,
+    platform: 'ios',
+    device: 'tablet'
+  }, t)
+})
+
+test('devices - android phone', function (t) {
+  t.plan(useragents.androidPhone.length * 2)
+  check({
+    list: useragents.androidPhone,
+    platform: 'android',
+    device: 'phone'
+  }, t)
+})
+
+test('devices - android tablet', function (t) {
+  t.plan(useragents.androidTablet.length * 2)
+  check({
+    list: useragents.androidTablet,
+    platform: 'android',
+    device: 'tablet'
+  }, t)
+})
+
+test('devices - stick tv', function (t) {
+  t.plan(useragents.sticktv.length * 2)
+  check({
+    list: useragents.sticktv,
+    platform: 'android',
+    device: 'sticktv'
+  }, t)
+})
+
+test('devices - fire tv', function (t) {
+  t.plan(useragents.firetv.length * 2)
+  check({
+    list: useragents.firetv,
+    platform: 'android',
+    device: 'firetv'
+  }, t)
+})
+
+test('devices - riks tv', function (t) {
+  t.plan(useragents.rikstv.length * 2)
+  check({
+    list: useragents.rikstv,
+    platform: 'rikstv',
+    device: 'rikstv'
+  }, t)
+})
+
+function check (params, t) {
+  var result
+  for (var i in params.list) {
+    result = ua(params.list[i])
+    t.equals(result.device, params.device, 'equals device')
+    t.equals(result.platform, params.platform, 'equals platform')
+  }
+}
