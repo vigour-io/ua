@@ -2,6 +2,8 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/vigour-ua.svg)](https://badge.fury.io/js/vigour-ua)
 [![Build Status](https://travis-ci.org/vigour-io/ua.svg?branch=master)](https://travis-ci.org/vigour-io/ua)
+[![Coverage Status](https://coveralls.io/repos/github/vigour-io/ua/badge.svg?branch=master)](https://coveralls.io/github/vigour-io/ua?branch=master)
+
 
 ua parser with a light footprint (~1kb)
 
