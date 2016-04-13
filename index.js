@@ -99,7 +99,8 @@ module.exports = exports = function (_ua, obj) {
   test.call(obj, _ua, 'webview',
     [ true, false ],
     [ 'vigour-wrapper', true ],
-    [ 'crosswalk', true ]
+    [ 'crosswalk', true ],
+    [ 'cordova', true ]
   )
 
   return obj
