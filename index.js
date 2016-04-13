@@ -96,11 +96,14 @@ module.exports = exports = function (_ua, obj) {
     [ _rikstv, _rikstv ]
   )
 
+  /**
+   * wrapped webview native app detection
+   */
   test.call(obj, _ua, 'webview',
     [ true, false ],
-    [ 'vigour-wrapper', true ],
-    [ 'crosswalk', true ],
-    [ 'cordova', true ]
+    [ 'vigour-wrapper', 'vigour' ],
+    [ 'crosswalk', 'crosswalk' ],
+    [ 'cordova', 'cordova' ]
   )
 
   return obj
