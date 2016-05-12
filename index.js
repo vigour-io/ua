@@ -102,6 +102,8 @@ module.exports = exports = function (_ua, obj) {
     [ 'crosswalk', true ]
   )
 
+  obj.touch = obj.device === 'tablet' || obj.device === 'phone'
+
   return obj
 
   /**

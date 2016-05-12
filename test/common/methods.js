@@ -8,7 +8,8 @@ var defaultUA = {
   prefix: 'webkit',
   platform: 'windows',
   device: 'desktop',
-  webview: false
+  webview: false,
+  touch: false
 }
 
 test('it returns an object', function (t) {
@@ -19,7 +20,8 @@ test('it returns an object', function (t) {
     prefix: 'webkit',
     platform: 'mac',
     device: 'desktop',
-    webview: false
+    webview: false,
+    touch: false
   })
 })
 
@@ -35,37 +37,40 @@ test('it can merge into an object', function (t) {
     prefix: 'webkit',
     platform: 'mac',
     device: 'desktop',
-    field: true,
-    webview: false
+    webview: false,
+    touch: false,
+    field: true
   })
 })
 
 test('it can merge into itself', function (t) {
-  t.plan(5)
+  t.plan(7)
   ua(userAgent, true)
   t.equals(ua.browser, 'chrome')
   t.equals(ua.version, 46)
   t.equals(ua.prefix, 'webkit')
   t.equals(ua.platform, 'mac')
   t.equals(ua.device, 'desktop')
+  t.equals(ua.webview, false)
+  t.equals(ua.touch, false)
 })
 
-test('should work even it _ua === undefined', function (t) {
+test('should work even if _ua === undefined', function (t) {
   t.plan(1)
   t.deepEquals(ua(), defaultUA)
 })
 
-test('should work even it _ua === {}', function (t) {
+test('should work even if _ua === {}', function (t) {
   t.plan(1)
   t.deepEquals(ua({}), defaultUA)
 })
 
-test('should work even it _ua is a number', function (t) {
+test('should work even if _ua is a number', function (t) {
   t.plan(1)
   t.deepEquals(ua(42), defaultUA)
 })
 
-test('should work even it _ua is a function', function (t) {
+test('should work even if _ua is a function', function (t) {
   t.plan(1)
   var testFunction = function () {
     return 1 + 1
@@ -73,17 +78,17 @@ test('should work even it _ua is a function', function (t) {
   t.deepEquals(ua(testFunction), defaultUA)
 })
 
-test('should work even it _ua is an array', function (t) {
+test('should work even if _ua is an array', function (t) {
   t.plan(1)
   t.deepEquals(ua([]), defaultUA)
 })
 
-test('should work even it _ua === true', function (t) {
+test('should work even if _ua === true', function (t) {
   t.plan(1)
   t.deepEquals(ua(true), defaultUA)
 })
 
-test('should work even it _ua === false', function (t) {
+test('should work even if _ua === false', function (t) {
   t.plan(1)
   t.deepEquals(ua(false), defaultUA)
 })
