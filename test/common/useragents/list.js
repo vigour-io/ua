@@ -73,3 +73,7 @@ exports.firetv = [
 exports.sticktv = ['Mozilla/5.0 (Linux; Android 4.2.2; AFTM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0']
 
 exports.rikstv = ['Ekioh/2.2.8.2 (Linux; Oct 31 2013; r12704) RiksTV/Strongv1']
+
+exports.edge = [
+  'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136'
+]
