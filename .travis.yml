@@ -1,14 +1,17 @@
 # .travis.yml
 language: node_js
-node_js:
-  - '5.4'
-  - '4.4'
+git:
+  depth: 1
+matrix:
+  include:
+  - node_js: '6.3'
+    script:
+      - npm run travis
 notifications:
   email: false
-script: npm run travis
-branches:
-  except:
-    - /^v[0-9]/
-  only:
-    - master
-    - develop
+deploy:
+  - provider: npm
+    email: jim@vigour.io
+    on:
+      branch: master
+      tags: true
