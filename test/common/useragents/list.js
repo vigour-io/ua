@@ -83,3 +83,7 @@ exports.rikstv = ['Ekioh/2.2.8.2 (Linux; Oct 31 2013; r12704) RiksTV/Strongv1']
 exports.edge = [
   'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136'
 ]
+
+exports.ployNative = [
+  'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E230 ploy-native'
+]
