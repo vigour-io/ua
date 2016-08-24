@@ -104,7 +104,8 @@ module.exports = exports = function (_ua, obj) {
     [ true, false ],
     [ 'crosswalk', 'crosswalk' ],
     [ 'vigour-wrapper', 'wrapper' ],
-    [ 'cordova', 'cordova' ]
+    [ 'cordova', 'cordova' ],
+    [ 'ploy-native', 'ploy-native' ]
   )
 
   return obj
