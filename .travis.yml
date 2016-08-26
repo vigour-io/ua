@@ -14,5 +14,6 @@ notifications:
 deploy:
   - provider: npm
     email: jim@vigour.io
+    api_key: ${NPM_TOKEN}
     on:
       branch: master
