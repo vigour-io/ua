@@ -25,8 +25,8 @@ test('devices - chromeCast', function (t) {
   t.plan(useragents.chromeCast.length * 2)
   check({
     list: useragents.chromeCast,
-    platform: 'chromecast',
-    device: 'chromecast'
+    platform: 'cast',
+    device: 'cast'
   }, t)
 })
 

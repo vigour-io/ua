@@ -25,7 +25,7 @@ module.exports = exports = function (_ua, obj) {
   var _xbox = 'xbox'
   var _linux = 'linux'
   var _castDetect = 'crkey'
-  var _chromecast = 'chromecast'
+  var _chromecast = 'cast'
   var _tablet = 'tablet'
   var _windows = 'windows'
   var _phone = 'phone'
