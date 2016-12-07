@@ -18,8 +18,14 @@ module.exports = exports = function (_ua, obj) {
   }
   // _ua = 'webos; linux - large screen'
   var _ff = 'firefox'
+  var _mac = 'mac'
+  var _chrome = 'chrome'
   var _android = 'android'
+  var _ploy = 'ploy-native'
+  var _wrapper = 'wrapper'
   var _mobile = '.+mobile'
+  var _crosswalk = 'crosswalk'
+  var _cordova = 'cordova'
   var _webkit = 'webkit'
   var _ps = 'playstation'
   var _xbox = 'xbox'
@@ -33,6 +39,9 @@ module.exports = exports = function (_ua, obj) {
   var _sticktv = 'sticktv'
   var _rikstv = 'rikstv'
   var _facebook = 'facebook'
+  var _edge = 'edge'
+  var _version = 'version'
+  var _samsung = 'samsung'
 
   /**
    * browser detection
@@ -41,22 +50,22 @@ module.exports = exports = function (_ua, obj) {
     function (query, arr) {
       obj.browser = arr[ 2 ] || query
       var _v = _ua.match(
-        new RegExp('((([\\/ ]version|' + arr[ 0 ] + '(?!.+version))[\/ ])| rv:)([0-9]{1,4}\\.[0-9]{0,2})')
+        new RegExp('((([\\/ ]' + _version + '|' + arr[ 0 ] + '(?!.+' + _version + '))[\/ ])| rv:)([0-9]{1,4}\\.[0-9]{0,2})')
       )
-      obj.version = _v ? Number(_v[ 4 ]) : 0
+      obj[_version] = _v ? Number(_v[ 4 ]) : 0
       obj.prefix = arr[ 1 ]
       // TODO: add prefix for opera v>12.15;
       // TODO: windows check for ie 11 may be too general;
     },
     [ true, _webkit ],
-    [ '\\(windows', 'ms', 'ie' ],
+    [ '\\(' + _windows, 'ms', 'ie' ],
     [ 'safari', _webkit ],
     [ _ff, 'Moz' ],
     [ 'opera', 'O' ],
     [ 'msie', 'ms', 'ie' ],
-    [ _facebook, _facebook ],
-    [ 'chrome|crios\/', _webkit, 'chrome' ],
-    [ 'edge', _webkit, 'edge' ]
+    [ _facebook ],
+    [ _chrome + '|crios\/', _webkit, _chrome ],
+    [ _edge, _webkit, _edge ]
   )
 
   /**
@@ -64,17 +73,17 @@ module.exports = exports = function (_ua, obj) {
    */
   test.call(obj, _ua, 'platform',
     [ true, _windows ],
-    [ _linux, _linux ],
+    [ _linux ],
     [ 'lg.{0,3}netcast', 'lg' ], // TODO:propably need to add more!
     [ _ff + _mobile, _ff ],
-    [ 'mac os x', 'mac' ], [ 'iphone|ipod|ipad', 'ios' ],
-    [ _xbox, _xbox ],
-    [ _ps, _ps ],
-    [ _android, _android ],
-    [ _windows, _windows ],
+    [ _mac + ' os x', _mac ], [ 'iphone|ipod|ipad', 'ios' ],
+    [ _xbox ],
+    [ _ps ],
+    [ _android ],
+    [ _windows ],
     [ _castDetect, _chromecast ],
-    [ 'smart-tv;|;samsung;smarttv', 'samsung' ], // SmartTV2013
-    [ _rikstv, _rikstv ]
+    [ 'smart-tv;|;' + _samsung + ';smarttv', _samsung ], // SmartTV2013
+    [ _rikstv ]
   )
 
   /**
@@ -84,7 +93,7 @@ module.exports = exports = function (_ua, obj) {
     [ true, 'desktop' ],
     [ _windows + '.+touch|ipad|' + _android, _tablet ],
     [
-      'phone|iphone|(' +
+      _phone + '|phone|(' +
       _android + _mobile + ')|(' + _ff + _mobile +
       ')|' + _windows + ' phone|iemobile', _phone
     ],
@@ -94,7 +103,7 @@ module.exports = exports = function (_ua, obj) {
     [ 'tablet|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
     [ 'aftb|afts', _firetv ],
     [ 'aftm', _sticktv ],
-    [ _rikstv, _rikstv ]
+    [ _rikstv ]
   )
 
   /**
@@ -102,10 +111,10 @@ module.exports = exports = function (_ua, obj) {
    */
   test.call(obj, _ua, 'webview',
     [ true, false ],
-    [ 'crosswalk', 'crosswalk' ],
-    [ 'vigour-wrapper', 'wrapper' ],
-    [ 'cordova', 'cordova' ],
-    [ 'ploy-native', 'ploy-native' ]
+    [  _crosswalk ],
+    [ 'vigour-' + _wrapper, _wrapper ],
+    [ _cordova ],
+    [ _ploy ]
   )
 
   return obj
@@ -118,10 +127,14 @@ module.exports = exports = function (_ua, obj) {
    * @method
    */
   function test (_ua, fn) {
-    for (var tests = arguments, i = tests.length - 1, query = tests[i][0]; query !== true && !new RegExp(query).test(_ua) && i > 0; query = tests[--i][0]); //eslint-disable-line
+    for (
+      var tests = arguments, i = tests.length - 1, t = tests[i], query = t[0];
+      query !== true && !new RegExp(query).test(_ua) && i > 0;
+      t = tests[--i], query = t[0]
+    ); //eslint-disable-line
     // this for has no body
-    if (fn.slice || fn.call(this, query, tests[i])) {
-      this[fn] = tests[i][1]
+    if (fn.slice || fn.call(this, query, t)) {
+      this[fn] = t[1] === void 0 ? query : t[1]
     }
   }
 }
