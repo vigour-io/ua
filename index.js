@@ -21,11 +21,8 @@ module.exports = exports = function (_ua, obj) {
   var _mac = 'mac'
   var _chrome = 'chrome'
   var _android = 'android'
-  var _ploy = 'ploy-native'
   var _wrapper = 'wrapper'
   var _mobile = '.+mobile'
-  var _crosswalk = 'crosswalk'
-  var _cordova = 'cordova'
   var _webkit = 'webkit'
   var _ps = 'playstation'
   var _xbox = 'xbox'
@@ -36,7 +33,6 @@ module.exports = exports = function (_ua, obj) {
   var _windows = 'windows'
   var _phone = 'phone'
   var _firetv = 'firetv'
-  var _sticktv = 'sticktv'
   var _rikstv = 'rikstv'
   var _facebook = 'facebook'
   var _edge = 'edge'
@@ -52,8 +48,8 @@ module.exports = exports = function (_ua, obj) {
       var _v = _ua.match(
         new RegExp('((([\\/ ]' + _version + '|' + arr[ 0 ] + '(?!.+' + _version + '))[\/ ])| rv:)([0-9]{1,4}\\.[0-9]{0,2})')
       )
-      obj[_version] = _v ? Number(_v[ 4 ]) : 0
-      obj.prefix = arr[ 1 ]
+      obj[_version] = _v ? Number(_v[4]) : 0
+      obj.prefix = arr[1]
       // TODO: add prefix for opera v>12.15;
       // TODO: windows check for ie 11 may be too general;
     },
@@ -100,9 +96,8 @@ module.exports = exports = function (_ua, obj) {
     [ _xbox + '|' + _ps, 'console' ],
     [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
     [ _castDetect, _chromecast ],
-    [ 'tablet|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
-    [ 'aftb|afts', _firetv ],
-    [ 'aftm', _sticktv ],
+    [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
+    [ 'aft[bsm]', _firetv ],
     [ _rikstv ]
   )
 
@@ -111,10 +106,10 @@ module.exports = exports = function (_ua, obj) {
    */
   test.call(obj, _ua, 'webview',
     [ true, false ],
-    [  _crosswalk ],
+    [  'crosswalk' ],
     [ 'vigour-' + _wrapper, _wrapper ],
-    [ _cordova ],
-    [ _ploy ]
+    [ 'cordova' ],
+    [ 'ploy-native' ]
   )
 
   return obj

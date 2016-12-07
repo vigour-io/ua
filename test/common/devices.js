@@ -71,7 +71,7 @@ test('devices - stick tv', function (t) {
   check({
     list: useragents.sticktv,
     platform: 'android',
-    device: 'sticktv'
+    device: 'firetv'
   }, t)
 })
 
