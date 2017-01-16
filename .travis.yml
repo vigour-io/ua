@@ -4,7 +4,9 @@ git:
   depth: 1
 matrix:
   include:
-  - node_js: '6.3'
+  - node_js:
+      - '6.3'
+      - '0.12'
     script:
       - npm run travis
 before_install:
