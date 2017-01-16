@@ -84,13 +84,13 @@ test('devices - fire tv', function (t) {
   }, t)
 })
 
-test('devices - riks tv', function (t) {
-  t.plan(useragents.rikstv.length * 2)
+test('devices - node.js', function (t) {
   check({
-    list: useragents.rikstv,
-    platform: 'rikstv',
-    device: 'rikstv'
+    list: [ void 0, false ],
+    platform: 'node.js',
+    device: 'server'
   }, t)
+  t.end()
 })
 
 function check (params, t) {

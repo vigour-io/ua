@@ -6,17 +6,9 @@
  * @returns {object} object representing your user agent
  */
 module.exports = exports = function (_ua, obj) {
-  if (typeof _ua === 'string') {
-    _ua = _ua.toLowerCase()
-  } else {
-    _ua = ''
-  }
-  if (obj === true) {
-    obj = exports
-  } else if (!obj) {
-    obj = {}
-  }
+  if (!obj) obj = {}
   // _ua = 'webos; linux - large screen'
+  var node = 'node.js'
   var _ff = 'firefox'
   var _mac = 'mac'
   var _chrome = 'chrome'
@@ -33,18 +25,19 @@ module.exports = exports = function (_ua, obj) {
   var _windows = 'windows'
   var _phone = 'phone'
   var _firetv = 'firetv'
-  var _rikstv = 'rikstv'
   var _facebook = 'facebook'
   var _edge = 'edge'
   var _version = 'version'
   var _samsung = 'samsung'
+
+  _ua = typeof _ua === 'string' ? _ua.toLowerCase() : node
 
   /**
    * browser detection
    */
   test.call(obj, _ua,
     function (query, arr) {
-      obj.browser = arr[ 2 ] || query
+      obj.browser = arr[2] || query
       var _v = _ua.match(
         new RegExp('((([\\/ ]' + _version + '|' + arr[ 0 ] + '(?!.+' + _version + '))[\/ ])| rv:)([0-9]{1,4}\\.[0-9]{0,2})')
       )
@@ -61,7 +54,8 @@ module.exports = exports = function (_ua, obj) {
     [ 'msie', 'ms', 'ie' ],
     [ _facebook ],
     [ _chrome + '|crios\/', _webkit, _chrome ],
-    [ _edge, _webkit, _edge ]
+    [ _edge, _webkit, _edge ],
+    [ node, false, true ]
   )
 
   /**
@@ -72,14 +66,15 @@ module.exports = exports = function (_ua, obj) {
     [ _linux ],
     [ 'lg.{0,3}netcast', 'lg' ], // TODO:propably need to add more!
     [ _ff + _mobile, _ff ],
-    [ _mac + ' os x', _mac ], [ 'iphone|ipod|ipad', 'ios' ],
+    [ _mac + ' os x', _mac ],
+    [ 'iphone|ipod|ipad', 'ios' ],
     [ _xbox ],
     [ _ps ],
     [ _android ],
     [ _windows ],
     [ _castDetect, _chromecast ],
     [ 'smart-tv;|;' + _samsung + ';smarttv', _samsung ], // SmartTV2013
-    [ _rikstv ]
+    [ node ]
   )
 
   /**
@@ -98,7 +93,7 @@ module.exports = exports = function (_ua, obj) {
     [ _castDetect, _chromecast ],
     [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
     [ 'aft[bsm]', _firetv ],
-    [ _rikstv ]
+    [ node, 'server' ]
   )
 
   /**

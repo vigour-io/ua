@@ -48,11 +48,4 @@ outputs `someObject`
 }
 ```
 
-### merge into itself
-```javascript
-var ua = require('vigour-ua')
-console.log(ua(userAgent, true))
-// adds properties on the ua module
-```
-
 *This useragent parser does not catch all useragents, if you encounter a device thats wrongly parsed add a test!*
