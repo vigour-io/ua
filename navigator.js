@@ -1,1 +1,2 @@
-require('./')(typeof window !== 'undefined' && window.navigator.userAgent, exports)
+const ua = require('./')
+ua(typeof window !== 'undefined' && window.navigator.userAgent, exports)
