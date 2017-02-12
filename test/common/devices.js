@@ -93,11 +93,21 @@ test('devices - node.js', function (t) {
   t.end()
 })
 
+test('devices - bots', function (t) {
+  check({
+    list: useragents.bots,
+    device: 'bot'
+  }, t)
+  t.end()
+})
+
+
+
 function check (params, t) {
   var result
   for (var i in params.list) {
     result = ua(params.list[i])
     t.equals(result.device, params.device, 'equals device')
-    t.equals(result.platform, params.platform, 'equals platform')
+    if (params.platform) { t.equals(result.platform, params.platform, 'equals platform') }
   }
 }

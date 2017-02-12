@@ -93,6 +93,7 @@ module.exports = exports = function (_ua, obj) {
     [ _castDetect, _chromecast ],
     [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
     [ 'aft[bsm]', _firetv ],
+    [ 'mozilla\\/5.0 \\(compatible; .+http:\\/\\/', 'bot' ],
     [ node, 'server' ]
   )
 
