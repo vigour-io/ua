@@ -14,7 +14,8 @@ test('browsers - edge', function (t) {
 test('browsers - firefox', function (t) {
   check({
     list: useragents.firefox,
-    browser: 'firefox'
+    browser: 'firefox',
+    prefix: 'moz'
   }, t)
   t.end()
 })
@@ -31,6 +32,7 @@ function check (params, t) {
   var result
   for (var i in params.list) {
     result = ua(params.list[i])
+    if (params.prefix) t.equals(result.prefix, params.prefix, 'equals prefix')
     t.equals(result.browser, params.browser, 'equals browser')
   }
 }

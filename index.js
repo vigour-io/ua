@@ -49,7 +49,7 @@ module.exports = exports = function (_ua, obj) {
     [ true, _webkit ],
     [ '\\(' + _windows, 'ms', 'ie' ],
     [ 'safari', _webkit ],
-    [ _ff, 'Moz' ],
+    [ _ff, 'moz' ],
     [ 'opera', 'O' ],
     [ 'msie', 'ms', 'ie' ],
     [ _facebook ],
