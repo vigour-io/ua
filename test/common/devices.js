@@ -39,6 +39,15 @@ test('devices - iPhone', function (t) {
   }, t)
 })
 
+test('devices - iPod', function (t) {
+  t.plan(useragents.iPod.length * 2)
+  check({
+    list: useragents.iPod,
+    platform: 'ios',
+    device: 'phone'
+  }, t)
+})
+
 test('devices - iPad', function (t) {
   t.plan(useragents.iPad.length * 2)
   check({
