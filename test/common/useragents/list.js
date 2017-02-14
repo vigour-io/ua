@@ -105,6 +105,7 @@ exports.sticktv = ['Mozilla/5.0 (Linux; Android 4.2.2; AFTM Build/JDQ39) AppleWe
 exports.rikstv = ['Ekioh/2.2.8.2 (Linux; Oct 31 2013; r12704) RiksTV/Strongv1']
 
 exports.ployNative = [
+  'Mozilla/5.0 (iPad; CPU OS 10_3 like Mac OS X) AppleWebKit/603.1.23 (KHTML, like Gecko) Version/10.0 Mobile/14E5239e ploy-native',
   'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E230 ploy-native'
 ]
 
