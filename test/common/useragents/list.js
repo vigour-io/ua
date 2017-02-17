@@ -5,6 +5,7 @@ exports.chrome = [
 ]
 
 exports.firefox = [
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:51.0) Gecko/20100101 Firefox/51.0',
   'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0',
   'Mozilla/5.0 (Macintosh; PPC Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0',
   'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
@@ -106,8 +107,7 @@ exports.sticktv = ['Mozilla/5.0 (Linux; Android 4.2.2; AFTM Build/JDQ39) AppleWe
 exports.rikstv = ['Ekioh/2.2.8.2 (Linux; Oct 31 2013; r12704) RiksTV/Strongv1']
 
 exports.ployNative = [
-  'Mozilla/5.0 (iPad; CPU OS 10_3 like Mac OS X) AppleWebKit/603.1.23 (KHTML, like Gecko) Version/10.0 Mobile/14E5239e ploy-native',
-  'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E230 ploy-native'
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 ploy-native"
 ]
 
 exports.chromeCast =
