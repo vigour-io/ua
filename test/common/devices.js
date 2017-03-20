@@ -80,7 +80,7 @@ test('devices - stick tv', function (t) {
   check({
     list: useragents.sticktv,
     platform: 'android',
-    device: 'firetv'
+    device: 'tv'
   }, t)
 })
 
@@ -89,7 +89,7 @@ test('devices - fire tv', function (t) {
   check({
     list: useragents.firetv,
     platform: 'android',
-    device: 'firetv'
+    device: 'tv'
   }, t)
 })
 
