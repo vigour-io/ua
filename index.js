@@ -89,7 +89,7 @@ module.exports = exports = function (_ua, obj) {
       ')|' + _windows + ' phone|iemobile', _phone
     ],
     [ _xbox + '|' + _ps, 'console' ],
-    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large', 'tv' ],
+    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera', 'tv' ],
     [ _castDetect, _chromecast ],
     [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
     [ 'aft[bsm]', _firetv ],
@@ -102,7 +102,7 @@ module.exports = exports = function (_ua, obj) {
    */
   test.call(obj, _ua, 'webview',
     [ true, false ],
-    [  'crosswalk' ],
+    [ 'crosswalk' ],
     [ 'vigour-' + _wrapper, _wrapper ],
     [ 'cordova' ],
     [ 'ploy-native' ]
