@@ -24,7 +24,6 @@ module.exports = exports = function (_ua, obj) {
   var _tablet = 'tablet'
   var _windows = 'windows'
   var _phone = 'phone'
-  var _firetv = 'firetv'
   var _facebook = 'facebook'
   var _edge = 'edge'
   var _version = 'version'
@@ -89,10 +88,9 @@ module.exports = exports = function (_ua, obj) {
       ')|' + _windows + ' phone|iemobile', _phone
     ],
     [ _xbox + '|' + _ps, 'console' ],
-    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera', 'tv' ],
+    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera|aft[bsm]', 'tv' ],
     [ _castDetect, _chromecast ],
     [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
-    [ 'aft[bsm]', _firetv ],
     [ 'mozilla\\/5.0 \\(compatible; .+http:\\/\\/', 'bot' ],
     [ node, 'server' ]
   )
