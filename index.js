@@ -91,7 +91,7 @@ module.exports = exports = function (_ua, obj) {
     [ _xbox + '|' + _ps, 'console' ],
     [ _castDetect, _chromecast ],
     [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
-    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera|aft[bsm]', 'tv' ],
+    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera|aft[bsm]|bravia', 'tv' ],
     [ 'mozilla\\/5.0 \\(compatible; .+http:\\/\\/', 'bot' ],
     [ node, 'server' ]
   )
