@@ -39,6 +39,15 @@ test('devices - iPhone', function (t) {
   }, t)
 })
 
+test('devices - iPhone wrapper', function (t) {
+  t.plan(useragents.ployNative.length * 2)
+  check({
+    list: useragents.ployNative,
+    platform: 'ios',
+    device: 'phone'
+  }, t)
+})
+
 test('devices - iPod', function (t) {
   t.plan(useragents.iPod.length * 2)
   check({
@@ -109,8 +118,6 @@ test('devices - bots', function (t) {
   }, t)
   t.end()
 })
-
-
 
 function check (params, t) {
   var result
