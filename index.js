@@ -24,7 +24,6 @@ module.exports = exports = function (_ua, obj) {
   var _tablet = 'tablet'
   var _windows = 'windows'
   var _phone = 'phone'
-  var _firetv = 'firetv'
   var _facebook = 'facebook'
   var _edge = 'edge'
   var _version = 'version'
@@ -39,7 +38,7 @@ module.exports = exports = function (_ua, obj) {
     function (query, arr) {
       obj.browser = arr[2] || query
       var _v = _ua.match(
-        new RegExp('((([\\/ ]' + _version + '|' + arr[ 0 ] + '(?!.+' + _version + '))[\/ ])| rv:)([0-9]{1,4}\\.[0-9]{0,2})')
+        new RegExp('((([\\/ ]' + _version + '|' + arr[ 0 ] + '(?!.+' + _version + '))[/ ])| rv:)([0-9]{1,4}\\.[0-9]{0,2})')
       )
       obj[_version] = _v ? Number(_v[4]) : 0
       obj.prefix = arr[1]
@@ -53,7 +52,7 @@ module.exports = exports = function (_ua, obj) {
     [ 'opera', 'O' ],
     [ 'msie', 'ms', 'ie' ],
     [ _facebook ],
-    [ _chrome + '|crios\/', _webkit, _chrome ],
+    [ _chrome + '|crios/', _webkit, _chrome ],
     [ _edge, _webkit, _edge ],
     [ node, false, true ]
   )
@@ -91,7 +90,7 @@ module.exports = exports = function (_ua, obj) {
     [ _xbox + '|' + _ps, 'console' ],
     [ _castDetect, _chromecast ],
     [ _tablet + '|amazon-fireos|nexus (?=[^1-6])\\d{1,2}', _tablet ],
-    [ 'tv|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera|aft[bsm]|bravia', 'tv' ],
+    [ '\\btv\\b|smarttv|googletv|appletv|hbbtv|pov_tv|netcast.tv|webos.+large|viera|aft[bsm]|bravia', 'tv' ],
     [ 'mozilla\\/5.0 \\(compatible; .+http:\\/\\/', 'bot' ],
     [ node, 'server' ]
   )
