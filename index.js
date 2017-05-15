@@ -29,7 +29,9 @@ module.exports = exports = function (_ua, obj) {
   var _version = 'version'
   var _samsung = 'samsung'
 
-  _ua = typeof _ua === 'string' ? _ua.toLowerCase() : node
+  var _fullUA = typeof _ua === 'string' ? _ua.toLowerCase() : node
+  var _vendorIdx = _fullUA.indexOf('*vg*')
+  _ua = ~_vendorIdx ? _fullUA.substring(0, _vendorIdx - 1) : _fullUA
 
   /**
    * browser detection
@@ -98,7 +100,7 @@ module.exports = exports = function (_ua, obj) {
   /**
    * wrapped webview native app detection
    */
-  test.call(obj, _ua, 'webview',
+  test.call(obj, _fullUA, 'webview',
     [ true, false ],
     [ 'crosswalk' ],
     [ 'vigour-' + _wrapper, _wrapper ],
@@ -111,7 +113,7 @@ module.exports = exports = function (_ua, obj) {
   /**
    * test
    * search for regexps in the userAgent
-   * fn is a on succes callback
+   * fn is a on success callback
    * check tests in https://github.com/faisalman/ua-parser-js to test for userAgents
    * @method
    */
