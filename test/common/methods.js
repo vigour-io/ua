@@ -19,7 +19,8 @@ test('it returns an object', function (t) {
     prefix: 'webkit',
     platform: 'mac',
     device: 'desktop',
-    webview: false
+    webview: false,
+    chrome: '46.0.2490.80'
   })
 })
 
@@ -36,7 +37,8 @@ test('it can merge into an object', function (t) {
     platform: 'mac',
     device: 'desktop',
     field: true,
-    webview: false
+    webview: false,
+    chrome: '46.0.2490.80'
   })
 })
 
