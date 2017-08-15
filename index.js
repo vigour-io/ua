@@ -108,6 +108,14 @@ module.exports = exports = function (_ua, obj) {
     [ 'ploy-native' ]
   )
 
+  const android = _ua && _ua.match(/Android ([0-9.]+)/i)
+  if (android) {
+    obj.android = android[1]
+  }
+  const chrome = _ua && _ua.match(/Chrome\/([0-9.]+)/i)
+  if (chrome) {
+    obj.chrome = chrome[1]
+  }
   return obj
 
   /**
