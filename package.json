@@ -19,7 +19,7 @@
     "browserify"
   ],
   "author": "Jim de Beer",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vigour-io/ua/issues"
   },
