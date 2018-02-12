@@ -7,8 +7,7 @@ var defaultUA = {
   version: 0,
   prefix: false,
   platform: 'node.js',
-  device: 'server',
-  webview: false
+  device: 'server'
 }
 
 test('it returns an object', function (t) {
@@ -18,9 +17,7 @@ test('it returns an object', function (t) {
     version: 46,
     prefix: 'webkit',
     platform: 'mac',
-    device: 'desktop',
-    webview: false,
-    chrome: '46.0.2490.80'
+    device: 'desktop'
   })
 })
 
@@ -36,9 +33,7 @@ test('it can merge into an object', function (t) {
     prefix: 'webkit',
     platform: 'mac',
     device: 'desktop',
-    field: true,
-    webview: false,
-    chrome: '46.0.2490.80'
+    field: true
   })
 })
 

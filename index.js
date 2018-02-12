@@ -13,7 +13,6 @@ module.exports = exports = function (_ua, obj) {
   var _mac = 'mac'
   var _chrome = 'chrome'
   var _android = 'android'
-  var _wrapper = 'wrapper'
   var _mobile = '.+mobile'
   var _webkit = 'webkit'
   var _ps = 'playstation'
@@ -97,25 +96,6 @@ module.exports = exports = function (_ua, obj) {
     [ node, 'server' ]
   )
 
-  /**
-   * wrapped webview native app detection
-   */
-  test.call(obj, _fullUA, 'webview',
-    [ true, false ],
-    [ 'crosswalk' ],
-    [ 'vigour-' + _wrapper, _wrapper ],
-    [ 'cordova' ],
-    [ 'ploy-native' ]
-  )
-
-  const android = _ua && _ua.match(/Android ([0-9.]+)/i)
-  if (android) {
-    obj.android = android[1]
-  }
-  const chrome = _ua && _ua.match(/Chrome\/([0-9.]+)/i)
-  if (chrome) {
-    obj.chrome = chrome[1]
-  }
   return obj
 
   /**
