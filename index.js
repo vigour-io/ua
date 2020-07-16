@@ -54,7 +54,7 @@ module.exports = exports = function (_ua, obj) {
     [ 'opera', 'O' ],
     [ 'msie', 'ms', 'ie' ],
     [ _facebook ],
-    [ _chrome + '|crios/', _webkit, _chrome ],
+    [ _chrome + '|crios', _webkit, _chrome ],
     [ _edge, _webkit, _edge ],
     [ node, false, true ]
   )
